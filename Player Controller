@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour {
+
+    public float speed;
+    
+    private Rigidbody rb;
+    private int count;
+    public float torque;
+    Vector3 rot = Vector3.zero;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    void FixedUpdate()
+    {
+        float rotHorizontal = Input.GetAxis("Horizontal");
+        float rotVertical = Input.GetAxis("Vertical");
+
+        rot = new Vector3(-rotHorizontal, 0.0f, rotVertical);
+        transform.Rotate(rot);
+    }
+ }
